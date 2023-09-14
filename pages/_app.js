@@ -2,6 +2,8 @@ import { SessionProvider } from "next-auth/react";
 import { Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import SideBar from "@/components/SideBar";
+import CreateDivisiModal from "@/components/Divisi/CreateDivisiModal";
+import Toast from "@/components/Toast/Toast";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -17,13 +19,14 @@ export default function App({
       {" "}
       <div className={`flex w-full  ${poppins.className}`}>
         <SideBar />
-        <div className="flex flex-col w-4/5 md:flex-row">
+        <div className="flex flex-col w-full md:w-4/5 md:flex-row">
           <div className="w-full md:w-2/3">
             <Component {...pageProps} />
           </div>
           <div className="w-full p-5 bg-white md:w-1/3">Member</div>
         </div>
       </div>
+      <Toast />
     </SessionProvider>
   );
 }
