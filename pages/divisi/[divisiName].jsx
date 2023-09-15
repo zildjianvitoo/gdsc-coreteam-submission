@@ -73,7 +73,7 @@ function DivisiName() {
   }, [id]);
 
   return (
-    <main className="bg-[#F2F7FF] p-5 min-h-screen">
+    <main className="bg-[#F2F7FF] p-5 md:min-h-screen">
       <div className="flex gap-3 w-full items-center">
         <RxHamburgerMenu
           className="text-2xl flex md:hidden"

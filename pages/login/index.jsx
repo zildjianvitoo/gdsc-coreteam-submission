@@ -14,7 +14,7 @@ export default function Login() {
   }, [session, router]);
 
   return (
-    <main className="flex justify-center items-center h-screen">
+    <main className="flex justify-center items-center w-full absolute h-screen">
       <button
         onClick={() => signIn("google")}
         className="px-6 py-4 bg-blue-400 rounded-lg text-white text-xl"

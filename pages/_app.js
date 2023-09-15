@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import SideBar from "@/components/SideBar";
 
 import Toast from "@/components/Toast/Toast";
+import Info from "@/components/Info/Info";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ export default function App({
             <Component {...pageProps} />
           </div>
           <div className="w-full p-5 bg-white md:w-1/3">
-            <button onClick={() => signOut("google")}>LOGOUT</button>
+            <Info />
           </div>
         </div>
       </div>
