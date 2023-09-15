@@ -1,8 +1,8 @@
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, signOut, useSession } from "next-auth/react";
 import { Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import SideBar from "@/components/SideBar";
-import CreateDivisiModal from "@/components/Divisi/CreateDivisiModal";
+
 import Toast from "@/components/Toast/Toast";
 
 const poppins = Poppins({
@@ -23,7 +23,9 @@ export default function App({
           <div className="w-full md:w-2/3">
             <Component {...pageProps} />
           </div>
-          <div className="w-full p-5 bg-white md:w-1/3">Member</div>
+          <div className="w-full p-5 bg-white md:w-1/3">
+            <button onClick={() => signOut("google")}>LOGOUT</button>
+          </div>
         </div>
       </div>
       <Toast />

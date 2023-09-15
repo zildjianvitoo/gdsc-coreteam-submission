@@ -8,7 +8,6 @@ function Toast() {
   useEffect(() => {
     const toastMsgInterval = setTimeout(() => {
       setToastMsg("");
-      console.log("kocak");
     }, 3000);
   }, [toastMsg]);
 

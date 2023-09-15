@@ -5,6 +5,7 @@ import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { useAtom } from "jotai";
 import { showToastMsg } from "@/store/showToastAtom";
+import { parentDivisiIdAtom } from "@/store/parentDivisiIdAtom";
 
 function CreateDivisiModal() {
   const [divisiName, setDivisiName] = useState("");
@@ -12,14 +13,17 @@ function CreateDivisiModal() {
   const [toastMsg, setToastMsg] = useAtom(showToastMsg);
 
   const divisiRef = collection(db, "divisi");
+  const [parentDivisiId] = useAtom(parentDivisiIdAtom);
 
   const onCreateDivisiHandler = async () => {
+    console.log(parentDivisiId);
     if (!divisiName) {
       return;
     }
     try {
       await addDoc(collection(db, "divisi"), {
         name: divisiName,
+        parentDivisiId: parentDivisiId,
         createdBy: session.user?.name,
       });
       setToastMsg("Divisi berhasil dibuat!");
